@@ -15,3 +15,12 @@ cp config.example.js config.js
 3. `index.html`을 브라우저에서 열거나 로컬 서버로 실행합니다.
 
 > `config.js`는 Git에 올라가지 않습니다. API 키는 이 파일에만 보관하세요.
+
+## 배포 (GitHub Pages)
+
+배포 URL: https://akdhfbfj.github.io/vibe-coding-movie/
+
+1. GitHub 저장소 → **Settings** → **Secrets and variables** → **Actions**
+2. `TMDB_API_KEY` 시크릿 추가 (TMDB API 키 값 입력)
+3. **Settings** → **Pages** → Source를 **GitHub Actions**로 설정
+4. `main` 브랜치에 push하면 자동 배포됩니다.
