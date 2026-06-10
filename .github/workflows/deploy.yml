@@ -25,12 +25,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create config.js from secret
-        run: |
-          cat > config.js << EOF
-          const TMDB_CONFIG = {
-            API_KEY: '${{ secrets.TMDB_API_KEY }}',
-          };
-          EOF
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

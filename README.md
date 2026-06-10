@@ -16,11 +16,19 @@ cp config.example.js config.js
 
 > `config.js`는 Git에 올라가지 않습니다. API 키는 이 파일에만 보관하세요.
 
-## 배포 (GitHub Pages)
+## 배포
+
+### GitHub Pages
 
 배포 URL: https://akdhfbfj.github.io/vibe-coding-movie/
 
 1. GitHub 저장소 → **Settings** → **Secrets and variables** → **Actions**
-2. `TMDB_API_KEY` 시크릿 추가 (TMDB API 키 값 입력)
+2. `TMDB_API_KEY` 시크릿 추가
 3. **Settings** → **Pages** → Source를 **GitHub Actions**로 설정
 4. `main` 브랜치에 push하면 자동 배포됩니다.
+
+### Vercel
+
+1. Vercel 프로젝트 → **Settings** → **Environment Variables**
+2. `TMDB_API_KEY` 추가 (Production, Preview, Development 모두)
+3. 재배포하면 빌드 시 `config.js`가 자동 생성됩니다.

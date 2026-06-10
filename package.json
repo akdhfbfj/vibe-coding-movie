@@ -1,0 +1,7 @@
+{
+  "name": "vibe-coding-movie",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-config.js"
+  }
+}
