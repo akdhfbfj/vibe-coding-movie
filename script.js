@@ -1,4 +1,4 @@
-const API_KEY = '5940b2fbd67e2079d56e0d26d48a4e62';
+const API_KEY = typeof TMDB_CONFIG !== 'undefined' ? TMDB_CONFIG.API_KEY : '';
 const API_URL = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko-KR`;
 const IMAGE_BASE = 'https://image.tmdb.org/t/p';
 
@@ -82,6 +82,14 @@ function showError(message) {
 }
 
 async function fetchMovies() {
+  if (!API_KEY || API_KEY === 'YOUR_TMDB_API_KEY_HERE') {
+    showError('config.js 파일에 TMDB API 키를 설정해 주세요. (config.example.js 참고)');
+    heroTitle.textContent = 'API 키가 필요합니다';
+    heroMeta.textContent = '';
+    heroOverview.textContent = 'config.example.js를 복사해 config.js를 만들고 API 키를 입력하세요.';
+    return;
+  }
+
   try {
     const response = await fetch(API_URL);
 
